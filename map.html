@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cemetery Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+    <style>
+        #map { height: 500px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([4.560658520486021, 101.12864549594816], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        omnivore.kml('https://raw.githubusercontent.com/Taraneebalan/GEO-PUSARA/refs/heads/main/BANGUNAN.kml').addTo(map);
+        omnivore.kml('https://raw.githubusercontent.com/Taraneebalan/GEO-PUSARA/refs/heads/main/JALAN.kml').addTo(map);
+        omnivore.kml('https://raw.githubusercontent.com/Taraneebalan/GEO-PUSARA/refs/heads/main/lot%20kubur.kml').addTo(map);
+    </script>
+</body>
+</html>
